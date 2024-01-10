@@ -1,6 +1,6 @@
 import React from 'react';
 import { useMutation } from '@apollo/client';
-import { SAVE_NASA_IMAGE } from '../mutations'; // Define your GraphQL mutation
+import { SAVE_NASA_IMAGE } from '../utils/mutations'; // Define your GraphQL mutation
 
 const SavedNasa = ({ image, isLoggedIn }) => {
   const [saveNasaImage] = useMutation(SAVE_NASA_IMAGE);

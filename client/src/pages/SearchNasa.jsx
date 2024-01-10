@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useQuery } from '@apollo/client';
-import { GET_NASA_DATA } from '../queries'; // Define your GraphQL query
+import { GET_NASA_IMAGES } from '../utils/queries'; // Define your GraphQL query
 
 const SearchNasa = () => {
   const [startDate, setStartDate] = useState(''); // Set initial state for start date
   const [endDate, setEndDate] = useState(''); // Set initial state for end date
 
-  const { loading, error, data } = useQuery(GET_NASA_DATA, {
+  const { loading, error, data } = useQuery(GET_NASA_IMAGES, {
     variables: { startDate, endDate },
   });
 

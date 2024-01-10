@@ -5,9 +5,14 @@ const { fetchNasaData } = require('../controllers/nasaApi');
 
 const resolvers = {
   Query: {
-    getNasaData: async (parent, {startDate, endDate}) => {
+    getNasaData: async (parent, { startDate, endDate }) => {
       const nasaData = await fetchNasaData(startDate, endDate);
-      return nasaData;
+      return {
+        data: nasaData.data, // Return an object with 'data' field
+        headers: nasaData.headers,
+        status: nasaData.status,
+        statusText: nasaData.statusText,
+      };
     },
     me: async (parent, args, context) => {
       if (context.user) {

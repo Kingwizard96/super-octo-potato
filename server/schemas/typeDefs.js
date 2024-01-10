@@ -1,12 +1,10 @@
-
 const typeDefs = `
-  
   type Query {
     me: User
     users: [User]
     user(username: String!): User
     getNasaData(startDate: String, endDate: String): NasaData
-    getNasaImages: [NasaImage]
+    nasaImages: [NasaImage]
   }
 
   type Mutation {
@@ -31,7 +29,7 @@ const typeDefs = `
   }
 
   type NasaData {
-    data: String
+    data: [NasaImage]  
     headers: String
     status: Int
     statusText: String
@@ -43,10 +41,6 @@ const typeDefs = `
     url: String!
     date: String!
   }
-
-  
-
-
 `;
 
 module.exports = typeDefs;

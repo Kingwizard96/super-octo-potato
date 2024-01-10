@@ -7,10 +7,14 @@ module.exports.getFormattedDate = (date) => {
   return `${year}-${month}-${day}`;
 };
 
- module.exports.fetchNasaData = async (startDate, endDate) => {
+module.exports.fetchNasaData = async (startDate, endDate) => {
   try {
     const apiKey = 'DEMO_KEY'; // Replace with your NASA API key
-    const apiUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&start_date=${startDate}&end_date=${endDate}`;
+    const formattedStartDate = this.getFormattedDate(new Date(startDate));
+    const formattedEndDate = this.getFormattedDate(new Date(endDate));
+
+    const apiUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&start_date=${formattedStartDate}&end_date=${formattedEndDate}`;
+    
     const response = await axios.get(apiUrl);
 
     return {
