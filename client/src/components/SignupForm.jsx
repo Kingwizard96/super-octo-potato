@@ -33,16 +33,16 @@ const SignupForm = () => {
       event.stopPropagation();
     }
 
-    if (error) {
-      throw new Error("something went wrong!");
-    }
+    // if (error) {
+    //   throw new Error("something went wrong!");
+    // }
 
     try {
       const { data } = await addUser({
         variables: { ...userFormData }
       });
       Auth.login(data.addUser.token);
-      console.log(data);
+      // console.log(data);
     } catch (err) {
       console.error(err);
       setShowAlert(true);

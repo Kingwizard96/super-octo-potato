@@ -9,6 +9,7 @@ mutation login($email: String!, $password: String!) {
         username
         }
     }
+}
 `;
 
 // Add the ADD_USER mutation

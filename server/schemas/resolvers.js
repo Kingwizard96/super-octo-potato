@@ -21,12 +21,12 @@ const resolvers = {
       }
       throw new AuthenticationError("Not logged in");
     },
-    users: async () => {
-      return User.find().select("-__v -password").populate("savedNasaImages");
-    },
-    user: async (parent, { username }) => {
-      return User.findOne({ username }).select("-__v -password").populate("savedNasaImages");
-    },
+    // users: async () => {
+    //   return User.find().select("-__v -password").populate("savedNasaImages");
+    // },
+    // user: async (parent, { username }) => {
+    //   return User.findOne({ username }).select("-__v -password").populate("savedNasaImages");
+    // },
   },
 
   Mutation: {
