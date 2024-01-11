@@ -5,11 +5,17 @@ import { GET_NASA_IMAGES } from '../utils/queries'; // Define your GraphQL query
 const SearchNasa = () => {
   const [startDate, setStartDate] = useState(''); // Set initial state for start date
   const [endDate, setEndDate] = useState(''); // Set initial state for end date
-
+  const [queryData, setqueryData] = useState();
   const { loading, error, data } = useQuery(GET_NASA_IMAGES, {
     variables: { startDate, endDate },
   });
 
+
+  useEffect(()=>{
+     if(data){
+      setqueryData(data)
+     }
+  },[data] )
   const handleSearch = () => {
     // Trigger the query when the user performs a search
   };
@@ -30,7 +36,7 @@ const SearchNasa = () => {
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error.message}</p>}
 
-      {data && data.getNasaData && (
+      {queryData && queryData.getNasaData && (
         <div>
           {/* Render NASA images here based on the data received */}
           {data.getNasaData.data.map((image) => (
