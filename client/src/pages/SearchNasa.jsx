@@ -10,12 +10,14 @@ const SearchNasa = () => {
     variables: { startDate, endDate },
   });
 
-
   useEffect(()=>{
-     if(data){
-      setqueryData(data)
-     }
-  },[data] )
+    return (data) => {
+     setqueryData(data)
+    }
+ },[data] )
+
+
+
   const handleSearch = () => {
     // Trigger the query when the user performs a search
   };
@@ -23,6 +25,7 @@ const SearchNasa = () => {
   return (
     <div>
       <h2>Search NASA Images</h2>
+      <p>Example Date:"YYYY-MM-DD"</p>
       <div>
         <label>Start Date: </label>
         <input type="text" value={startDate} onChange={(e) => setStartDate(e.target.value)} />
