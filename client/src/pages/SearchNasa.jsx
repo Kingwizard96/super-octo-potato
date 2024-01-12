@@ -6,12 +6,13 @@ const SearchNasa = () => {
   const [startDate, setStartDate] = useState(''); // Set initial state for start date
   const [endDate, setEndDate] = useState(''); // Set initial state for end date
 
-  const { loading, error, data } = useQuery(GET_NASA_IMAGES, {
+  const { loading, error, data, refetch } = useQuery(GET_NASA_IMAGES, {
     variables: { startDate, endDate },
   });
 
   const handleSearch = () => {
     // Trigger the query when the user performs a search
+    refetch({ startDate, endDate });
   };
 
   return (

@@ -6,10 +6,17 @@ import {
   ApolloProvider,
   createHttpLink,
 } from '@apollo/client';
+
+import  { 
+  HeroSection,
+  Button,
+} from './components/componentsindex';
+
 import { setContext } from '@apollo/client/link/context';
 
 
 import Navbar from './components/Navbar';
+
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -38,6 +45,7 @@ function App() {
     // ApolloProvider will make every request work with the ApolloClient
     <ApolloProvider client={client}>
     <Navbar />
+    <HeroSection />
     <Outlet />
   </ApolloProvider>
   );
