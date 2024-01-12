@@ -14,9 +14,9 @@ module.exports.fetchNasaData = async (startDate, endDate) => {
     const formattedEndDate = this.getFormattedDate(new Date(endDate));
    
     const apiUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&start_date=${formattedStartDate}&end_date=${formattedEndDate}`;
-    console.log(apiUrl)
+    // console.log(apiUrl)
     const response = await axios.get(apiUrl);
-    console.log(response,"res")
+    // console.log(response)
     return {
       data: response.data,
       headers: response.headers,

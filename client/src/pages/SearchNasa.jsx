@@ -39,7 +39,7 @@ const SearchNasa = () => {
       {queryData && queryData.getNasaData && (
         <div>
           {/* Render NASA images here based on the data received */}
-          {data.getNasaData.data.map((image) => (
+          {data.nasaImages.data.map((image) => (
             <div key={image.date}>
               <h3>{image.title}</h3>
               <img src={image.url} alt={image.title} />
