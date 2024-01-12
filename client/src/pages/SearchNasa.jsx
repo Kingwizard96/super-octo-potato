@@ -10,29 +10,44 @@ const SearchNasa = () => {
     variables: { startDate, endDate },
   });
 
-  useEffect(()=>{
-    return (data) => {
-     setqueryData(data)
-    }
- },[data] )
+
 
 
 
   const handleSearch = () => {
-    // Trigger the query when the user performs a search
+    
+    useEffect(()=>{
+      return (data) => {
+       setqueryData(data)
+      }
+   },[data] )
+
+   
+  //    Trigger the query when the user performs a search
   };
+
 
   return (
     <div fluid className='bg-dark text-light'>
       <h2>Search NASA Images</h2>
-      <p>Example Date:"YYYY-MM-DD"</p>
+      <p>Example Date:"2021-01-15"</p>
       <div>
         <label>Start Date: </label>
-        <input type="text" value={startDate} onChange={(e) => setStartDate(e.target.value)} />
+        <input 
+        type="text" 
+        placeholder='YYYY-MM-DD' 
+        value={startDate} 
+        onChange={(e) => setStartDate(e.target.value)}
+         />
       </div>
       <div>
         <label>End Date: </label>
-        <input type="text" value={endDate} onChange={(e) => setEndDate(e.target.value)} />
+        <input 
+        type="text" 
+        placeholder='YYYY-MM-DD' 
+        value={endDate} 
+        onChange={(e) => setEndDate(e.target.value)}
+         />
       </div>
       <button onClick={handleSearch}>Search</button>
 
@@ -54,5 +69,6 @@ const SearchNasa = () => {
     </div>
   );
 };
+
 
 export default SearchNasa;
