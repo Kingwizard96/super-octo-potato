@@ -2,7 +2,23 @@ import React, { useState, useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_NASA_IMAGES } from '../utils/queries'; // Define your GraphQL query
 
-const SearchNasa = () => {
+import axios from 'axios';
+
+const api = axios.create({
+  baseURL: `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&start_date=${formattedStartDate}&end_date=${formattedEndDate}`
+})
+
+class App extends Component {
+
+  constructor() {
+    super();
+    api.get('/').then(res => {
+      console.log(res.data)
+    })
+  }
+
+
+SearchNasa = () => {
   const [startDate, setStartDate] = useState(''); // Set initial state for start date
   const [endDate, setEndDate] = useState(''); // Set initial state for end date
   const [queryData, setqueryData] = useState();
@@ -69,6 +85,7 @@ const SearchNasa = () => {
     </div>
   );
 };
+}
 
 
 export default SearchNasa;
