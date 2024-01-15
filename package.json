@@ -9,8 +9,7 @@
     "install": "cd server && npm i && cd ../client && npm i --production=false",
     "seed": "cd server && npm run seed",
     "build": "cd client && npm run build",
-    "render-build":"npm install && npm run build"
-
+    "render-build": "npm install && npm run build"
   },
   "author": "",
   "license": "ISC",
@@ -18,8 +17,9 @@
     "concurrently": "^5.3.0"
   },
   "dependencies": {
+    "@apollo/server": "^4.10.0",
     "axios": "^1.6.5",
-    "mongodb": "^6.3.0",
-    "dotenv": "^16.3.1"
+    "dotenv": "^16.3.1",
+    "mongodb": "^6.3.0"
   }
 }
